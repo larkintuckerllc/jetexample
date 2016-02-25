@@ -1,0 +1,21 @@
+{
+  "name": "JETEXAMPLE",
+  "authors": [
+    "John Tucker <john@larkintuckerllc.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "firebase": "^2.4.1"
+  }
+}

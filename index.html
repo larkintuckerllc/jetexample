@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>JETEXAMPLE</title>
+  <link rel="stylesheet" type="text/css" href="app.css">
+</head>
+<body>
+  <div id="account" style="display: none;">
+    <div id="account__login">
+      <div>Login</div>
+      <form id="account__login__form">
+        <input id="account__login__form__email" type="text" placeholder="email" />
+        <input id="account__login__form__password" type="password" placeholder="password" />
+        <input type="submit">
+      </form>
+      <div>Forgot your password?</div>
+    </div>
+    <div id="account__create">
+      <div>Sign Up</div>
+      <form id="account__create__form">
+        <input id="account__create__form__email" type="text" placeholder="email" />
+        <input id="account__create__form__password" type="password" placeholder="password" />
+        <input id="account__create__form__confirm" type="password" placeholder="confirm" />
+        <input type="submit">
+      </form>
+    </div>
+  </div>
+  <div id="chat" style="display: none;">
+    <div>Chat</div>
+    <div><button id="chat__logout">Logout</button></div>
+  </div>
+  <script src="bower_components/firebase/firebase.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
