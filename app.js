@@ -42,7 +42,11 @@
           password: password
         }, authHandler);
       }
-      function authHandler() {
+      function authHandler(error) {
+        if (!error) {
+          accountLoginFormEmailEl.value = '';
+        }
+        accountLoginFormPasswordEl.value = '';
       }
     }
     function create(e) {
@@ -55,8 +59,16 @@
           email: email,
           password: password
         }, createHandler);
+      } else {
+        accountCreateFormPasswordEl.value = '';
+        accountCreateFormConfirmEl.value = '';
       }
-      function createHandler() {
+      function createHandler(error) {
+        if (!error) {
+          accountCreateFormEmailEl.value = '';
+        }
+        accountCreateFormPasswordEl.value = '';
+        accountCreateFormConfirmEl.value = '';
       }
     }
     function logout() {
