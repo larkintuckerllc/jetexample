@@ -19,17 +19,34 @@
       document.getElementById('account__create__form__confirm');
     var chatEl = document.getElementById('chat');
     var chatLogoutEl = document.getElementById('chat__logout');
+    var chatMessagesEl = document.getElementById('chat__messages');
+    var chatInputsMessageEl = document.getElementById('chat__inputs__message');
     myDataRef.onAuth(authDataCallback);
     accountLoginFormEl.addEventListener('submit', login);
     accountCreateFormEl.addEventListener('submit', create);
     chatLogoutEl.addEventListener('click', logout);
+    chatInputsMessageEl.addEventListener('keypress', postMessage);
     function authDataCallback(authData) {
       if (authData) {
         accountEl.style.display = 'none';
         chatEl.style.display = 'block';
+        myDataRef.on('child_added', displayChatMessage);
       } else {
         chatEl.style.display = 'none';
         accountEl.style.display = 'block';
+        myDataRef.off('child_added', displayChatMessage);
+        chatMessagesEl.innerHTML = '';
+      }
+      function displayChatMessage(snapshot) {
+        var value = snapshot.val();
+        var messageEl = document.createElement('div');
+        messageEl.classList.add('chat__messages__message');
+        // TODO: HTML SANITIZE
+        messageEl.innerHTML = [
+          '<div class="chat__messages__message__message">' +
+           value.message + '</div>'
+        ].join('\n');
+        chatMessagesEl.appendChild(messageEl);
       }
     }
     function login(e) {
@@ -73,6 +90,17 @@
     }
     function logout() {
       myDataRef.unauth();
+    }
+    function postMessage(e) {
+      var message;
+      if (e.keyCode === 13) {
+        message = chatInputsMessageEl.value;
+        if (message) {
+          // TODO: ADD IDENTITY
+          myDataRef.push({message: message});
+          chatInputsMessageEl.value = '';
+        }
+      }
     }
   }
 })();
