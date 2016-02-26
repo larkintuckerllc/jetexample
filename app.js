@@ -2,6 +2,7 @@
   'use strict';
   document.addEventListener('DOMContentLoaded', ready);
   function ready() {
+    var me;
     var Firebase = window.Firebase;
     var myDataRef = new Firebase('https://jetexample.firebaseio.com/');
     var accountEl = document.getElementById('account');
@@ -18,6 +19,7 @@
     var accountCreateFormConfirmEl =
       document.getElementById('account__create__form__confirm');
     var chatEl = document.getElementById('chat');
+    var chatEmailEl = document.getElementById('chat__email');
     var chatLogoutEl = document.getElementById('chat__logout');
     var chatMessagesEl = document.getElementById('chat__messages');
     var chatInputsMessageEl = document.getElementById('chat__inputs__message');
@@ -27,24 +29,28 @@
     chatLogoutEl.addEventListener('click', logout);
     chatInputsMessageEl.addEventListener('keypress', postMessage);
     function authDataCallback(authData) {
-      if (authData) {
+      me = authData;
+      if (me) {
         accountEl.style.display = 'none';
+        chatEmailEl.innerHTML = me.password.email;
         chatEl.style.display = 'block';
         myDataRef.on('child_added', displayChatMessage);
       } else {
         chatEl.style.display = 'none';
+        chatEmailEl.innerHTML = '';
         accountEl.style.display = 'block';
         myDataRef.off('child_added', displayChatMessage);
         chatMessagesEl.innerHTML = '';
       }
       function displayChatMessage(snapshot) {
         var value = snapshot.val();
-        var messageEl = document.createElement('div');
-        messageEl.classList.add('chat__messages__message');
-        // TODO: HTML SANITIZE
+        var messageEl = document.createElement('li');
+        messageEl.classList.add('list-group-item');
         messageEl.innerHTML = [
-          '<div class="chat__messages__message__message">' +
-           value.message + '</div>'
+          '<div>' +
+           escapeHtml(value.message) + '</div>',
+          '<div class="chat__messages__message__email">' +
+          value.email + '</div>'
         ].join('\n');
         chatMessagesEl.appendChild(messageEl);
       }
@@ -96,11 +102,18 @@
       if (e.keyCode === 13) {
         message = chatInputsMessageEl.value;
         if (message) {
-          // TODO: ADD IDENTITY
-          myDataRef.push({message: message});
+          myDataRef.push({
+            email: me.password.email,
+            message: message
+          });
           chatInputsMessageEl.value = '';
         }
       }
+    }
+    function escapeHtml(str) {
+      var div = document.createElement('div');
+      div.appendChild(document.createTextNode(str));
+      return div.innerHTML;
     }
   }
 })();

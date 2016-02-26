@@ -5,36 +5,69 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>JETEXAMPLE</title>
+  <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="app.css">
 </head>
 <body>
-  <div id="account" style="display: none;">
-    <div id="account__login">
-      <div>Login</div>
-      <form id="account__login__form">
-        <input id="account__login__form__email" type="text" placeholder="email" />
-        <input id="account__login__form__password" type="password" placeholder="password" />
-        <input type="submit">
-      </form>
-    </div>
-    <div id="account__create">
-      <div>Sign Up</div>
-      <form id="account__create__form">
-        <input id="account__create__form__email" type="text" placeholder="email" />
-        <input id="account__create__form__password" type="password" placeholder="password" />
-        <input id="account__create__form__confirm" type="password" placeholder="confirm" />
-        <input type="submit">
-      </form>
-    </div>
-  </div>
-  <div id="chat" style="display: none;">
-    <div>Chat</div>
-    <div><button id="chat__logout">Logout</button></div>
-    <div>Messages</div>
-    <div id="chat__messages"></div>
-    <div>New Message</div>
-    <div id="chat__inputs">
-      <input id="chat__inputs__message" type="text" placeholder="message">
+  <div id="app_title">JET EXAMPLE </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12">
+        <div id="account" style="display: none;">
+          <div id="account__login" class="panel panel-default">
+            <div class="panel-heading">Login</div>
+            <div class="panel-body">
+              <form id="account__login__form">
+                <div class="form-group">
+                  <input id="account__login__form__email" type="text" class="form-control" placeholder="email" />
+                </div>
+                <div class="form-group">
+                  <input id="account__login__form__password" type="password" class="form-control" placeholder="password" />
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+              </form>
+            </div>
+          </div>
+          <div id="account__create" class="panel panel-default">
+            <div class="panel-heading">Sign Up</div>
+            <div class="panel-body">
+              <form id="account__create__form">
+                <div class="form-group">
+                  <input id="account__create__form__email" type="text" class="form-control" placeholder="email" />
+                </div>
+                <div class="form-group">
+                  <input id="account__create__form__password" type="password" class="form-control" placeholder="password" />
+                </div>
+                <div class="form-group">
+                  <input id="account__create__form__confirm" type="password" class="form-control" placeholder="confirm" />
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div id="chat" style="display: none;">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <span id="chat__email"></span>
+              <button id="chat__logout" class="btn btn-default">Logout</button>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">Messages</div>
+            <ul id="chat__messages" class="list-group">
+            </ul>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">New Message</div>
+            <div id="chat__inputs" class="panel-body">
+              <div class="form-group">
+                <input id="chat__inputs__message" type="text" class="form-control" placeholder="message">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <script src="bower_components/firebase/firebase.js"></script>
