@@ -1,12 +1,13 @@
 {
-  "name": "JETEXAMPLE",
+  "name": "jetexample",
+  "version": "0.0.1",
   "authors": [
     "John Tucker <john@larkintuckerllc.com>"
   ],
   "description": "",
   "main": "",
   "moduleType": [],
-  "license": "MIT",
+  "license": "GPL",
   "homepage": "",
   "ignore": [
     "**/.*",
