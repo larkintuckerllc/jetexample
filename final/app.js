@@ -36,11 +36,7 @@
         chatEl.style.display = 'block';
         myDataRef.on('child_added', displayChatMessage);
       } else {
-        chatEl.style.display = 'none';
-        chatEmailEl.innerHTML = '';
         accountEl.style.display = 'block';
-        myDataRef.off('child_added', displayChatMessage);
-        chatMessagesEl.innerHTML = '';
       }
       function displayChatMessage(snapshot) {
         var value = snapshot.val();
@@ -96,6 +92,7 @@
     }
     function logout() {
       myDataRef.unauth();
+      window.location.reload();
     }
     function postMessage(e) {
       var message;

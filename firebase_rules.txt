@@ -1,0 +1,18 @@
+{
+    "rules": {
+      ".read": "auth !== null",
+      ".write": "auth !== null",
+      "$message_id": {
+        ".validate": "newData.hasChildren(['message', 'email'])",
+          "message": {
+            ".validate": "newData.isString()"
+          },
+          "email": {
+            ".validate": "newData.isString()"
+          },
+          "$other": {
+            ".validate": false
+          }
+        }
+    }
+}
