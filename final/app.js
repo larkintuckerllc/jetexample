@@ -5,35 +5,23 @@
     var me;
     var Firebase = window.Firebase;
     var myDataRef = new Firebase('https://jetexample.firebaseio.com/');
-    var accountEl = document.getElementById('account');
-    var accountLoginFormEl = document.getElementById('account__login__form');
-    var accountLoginFormEmailEl =
-      document.getElementById('account__login__form__email');
-    var accountLoginFormPasswordEl =
-      document.getElementById('account__login__form__password');
-    var accountCreateFormEl = document.getElementById('account__create__form');
-    var accountCreateFormEmailEl =
-      document.getElementById('account__create__form__email');
-    var accountCreateFormPasswordEl =
-      document.getElementById('account__create__form__password');
-    var accountCreateFormConfirmEl =
-      document.getElementById('account__create__form__confirm');
-    var chatEl = document.getElementById('chat');
-    var chatEmailEl = document.getElementById('chat__email');
-    var chatLogoutEl = document.getElementById('chat__logout');
-    var chatMessagesEl = document.getElementById('chat__messages');
     var chatInputsMessageEl = document.getElementById('chat__inputs__message');
     myDataRef.onAuth(authDataCallback);
-    accountLoginFormEl.addEventListener('submit', login);
-    accountCreateFormEl.addEventListener('submit', create);
-    chatLogoutEl.addEventListener('click', logout);
+    document.getElementById('account__login__form')
+      .addEventListener('submit', login);
+    document.getElementById('account__create__form')
+      .addEventListener('submit', create);
+    document.getElementById('chat__logout')
+      .addEventListener('click', logout);
     chatInputsMessageEl.addEventListener('keypress', postMessage);
     function authDataCallback(authData) {
+      var accountEl = document.getElementById('account');
+      var chatMessagesEl = document.getElementById('chat__messages');
       me = authData;
       if (me) {
         accountEl.style.display = 'none';
-        chatEmailEl.innerHTML = me.password.email;
-        chatEl.style.display = 'block';
+        document.getElementById('chat__email').innerHTML = me.password.email;
+        document.getElementById('chat').style.display = 'block';
         myDataRef.on('child_added', displayChatMessage);
       } else {
         accountEl.style.display = 'block';
@@ -52,6 +40,10 @@
       }
     }
     function login(e) {
+      var accountLoginFormEmailEl =
+        document.getElementById('account__login__form__email');
+      var accountLoginFormPasswordEl =
+        document.getElementById('account__login__form__password');
       var email = accountLoginFormEmailEl.value;
       var password = accountLoginFormPasswordEl.value;
       e.preventDefault();
@@ -69,6 +61,12 @@
       }
     }
     function create(e) {
+      var accountCreateFormEmailEl =
+        document.getElementById('account__create__form__email');
+      var accountCreateFormPasswordEl =
+        document.getElementById('account__create__form__password');
+      var accountCreateFormConfirmEl =
+        document.getElementById('account__create__form__confirm');
       var email = accountCreateFormEmailEl.value;
       var password = accountCreateFormPasswordEl.value;
       var confirm = accountCreateFormConfirmEl.value;
