@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <title>JETEXAMPLE</title>
+  <!-- CORDOVA START -->
+  <!-- CORDOVA BUT DISABLED IN THIS EXAMPLE 
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+  -->
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+  <!-- CORDOVA END-->
+  <title>jetxample</title>
   <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="app.css">
 </head>
@@ -70,6 +75,9 @@
       </div>
     </div>
   </div>
+  <!-- CORDOVA START -->
+  <script type="text/javascript" src="cordova.js"></script>
+  <!-- CORDOVA END-->
   <script src="bower_components/firebase/firebase.js"></script>
   <script src="app.js"></script>
 </body>
