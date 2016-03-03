@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- CORDOVA START -->
+  <!-- CORDOVA BUT DISABLED IN THIS EXAMPLE 
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+  -->
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+  <!-- CORDOVA END-->
+  <title>jetxample</title>
+  <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="app.css">
+</head>
+<body>
+  <div id="app_title">JET EXAMPLE </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12">
+        <div id="account" style="display: none;">
+          <div id="account__login" class="panel panel-default">
+            <div class="panel-heading">Login</div>
+            <div class="panel-body">
+              <form id="account__login__form">
+                <div class="form-group">
+                  <input id="account__login__form__email" type="text" class="form-control" placeholder="email" />
+                </div>
+                <div class="form-group">
+                  <input id="account__login__form__password" type="password" class="form-control" placeholder="password" />
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+              </form>
+            </div>
+          </div>
+          <div id="account__create" class="panel panel-default">
+            <div class="panel-heading">Sign Up</div>
+            <div class="panel-body">
+              <form id="account__create__form">
+                <div class="form-group">
+                  <input id="account__create__form__email" type="text" class="form-control" placeholder="email" />
+                </div>
+                <div class="form-group">
+                  <input id="account__create__form__password" type="password" class="form-control" placeholder="password" />
+                </div>
+                <div class="form-group">
+                  <input id="account__create__form__confirm" type="password" class="form-control" placeholder="confirm" />
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div id="chat" style="display: none;">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <span id="chat__email"></span>
+              <button id="chat__logout" class="btn btn-default">Logout</button>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">Messages</div>
+            <ul id="chat__messages" class="list-group">
+            </ul>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">New Message</div>
+            <div id="chat__inputs" class="panel-body">
+              <div class="form-group">
+                <input id="chat__inputs__message" type="text" class="form-control" placeholder="message">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- CORDOVA START -->
+  <script type="text/javascript" src="cordova.js"></script>
+  <!-- CORDOVA END-->
+  <script src="bower_components/firebase/firebase.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

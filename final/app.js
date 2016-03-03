@@ -1,9 +1,9 @@
 (function() {
   'use strict';
+  var Firebase = window.Firebase;
   document.addEventListener('DOMContentLoaded', ready);
   function ready() {
     var me;
-    var Firebase = window.Firebase;
     var myDataRef = new Firebase('https://jetexample.firebaseio.com/');
     var chatInputsMessageEl = document.getElementById('chat__inputs__message');
     myDataRef.onAuth(authDataCallback);

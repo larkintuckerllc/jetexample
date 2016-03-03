@@ -1,0 +1,22 @@
+/* CORDOVA START */
+* {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+body {
+  -webkit-touch-callout: none;
+  -webkit-text-size-adjust: none;
+  -webkit-user-select: none;
+}
+/* CORDOVA END */
+#app_title {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: rgb(0,64,64);
+  text-align: center;
+  color: rgb(255,255,255);
+  font-size: 1.5em;
+}
+.chat__messages__message__email {
+  color: rgb(128,128,128);
+  font-size: 0.75em;
+}
